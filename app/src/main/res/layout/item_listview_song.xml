@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@mipmap/thumb_get_lucky"
+        android:padding="@dimen/padding_small"
+        android:id="@+id/imageThumbAlbum"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_small">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hello_world"
+                android:textSize="@dimen/font_medium"
+                android:padding="@dimen/padding_small"
+                android:textColor="@android:color/black"
+                android:id="@+id/textSong"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/time"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/font_medium"
+                android:padding="@dimen/padding_small"
+                android:textColor="@android:color/black"
+                android:id="@+id/textTime"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@string/hello_world"
+            android:textSize="@dimen/font_medium"
+            android:layout_weight="1"
+            android:padding="@dimen/padding_small"
+            android:textColor="@android:color/black"
+            android:id="@+id/textArtist"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="@string/hello_world"
+            android:textSize="@dimen/font_medium"
+            android:layout_weight="1"
+            android:padding="@dimen/padding_small"
+            android:textColor="@android:color/black"
+            android:id="@+id/textAlbum"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
