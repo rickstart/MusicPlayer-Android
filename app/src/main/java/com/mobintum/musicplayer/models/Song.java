@@ -1,7 +1,9 @@
-package com.mobintum.musicplayer;
+package com.mobintum.musicplayer.models;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+
+import com.mobintum.musicplayer.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.mobintum.musicplayer;
+package com.mobintum.musicplayer.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.mobintum.musicplayer.R;
+import com.mobintum.musicplayer.models.Song;
 
 import java.util.ArrayList;
 

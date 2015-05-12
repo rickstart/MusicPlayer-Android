@@ -1,4 +1,4 @@
-package com.mobintum.musicplayer;
+package com.mobintum.musicplayer.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.mobintum.musicplayer.R;
+import com.mobintum.musicplayer.adapters.SongListAdapter;
+import com.mobintum.musicplayer.models.Song;
 
 import java.util.ArrayList;
 

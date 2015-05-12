@@ -1,4 +1,4 @@
-package com.mobintum.musicplayer;
+package com.mobintum.musicplayer.activities;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -12,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.mobintum.musicplayer.R;
+import com.mobintum.musicplayer.models.Song;
 
 import java.util.ArrayList;
 
