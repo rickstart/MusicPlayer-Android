@@ -1,8 +1,8 @@
 package com.mobintum.musicplayer.fragments;
 
-import android.support.v4.app.Fragment;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -88,6 +88,12 @@ public class DetailSongFragment extends Fragment implements View.OnClickListener
         return viewRoot;
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mPlayer.stop();
+    }
+
     public void loadData(Song song){
 
         imgThumbDetail.setImageDrawable(song.getAlbumImage());
@@ -165,6 +171,19 @@ public class DetailSongFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void run() {
+        int currentPosition= 0;
+        int total = mPlayer.getDuration();
+        while (mPlayer!=null && currentPosition<total) {
+            try {
+                Thread.sleep(1000);
+                currentPosition= mPlayer.getCurrentPosition();
+            } catch (InterruptedException e) {
+                return;
+            } catch (Exception e) {
+                return;
+            }
+            progressBar.setProgress(currentPosition);
+        }
 
     }
 }

@@ -1,10 +1,12 @@
 package com.mobintum.musicplayer.activities;
 
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.mobintum.musicplayer.R;
 import com.mobintum.musicplayer.fragments.DetailSongFragment;
@@ -16,16 +18,30 @@ import java.util.ArrayList;
 public class ManagerActivity extends ActionBarActivity implements ListSongsFragment.OnFragmentInteractionListener {
 
     private ArrayList<Song> songs;
+    private String resourceType;
+    FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manager);
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.activity_manager,null);
+        resourceType = view.getTag().toString();
+        setContentView(view);
+        fragmentManager = getSupportFragmentManager();
         songs = Song.getSongs(getApplicationContext());
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, ListSongsFragment.newInstance(songs))
-                .commit();
+        if(resourceType.equals("sw600dp")){
+
+            fragmentManager.beginTransaction()
+                    .replace(R.id.containerLeft, ListSongsFragment.newInstance(songs))
+                    .commit();
+
+        }else {
+
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, ListSongsFragment.newInstance(songs))
+                    .commit();
+        }
     }
 
 
@@ -54,10 +70,16 @@ public class ManagerActivity extends ActionBarActivity implements ListSongsFragm
     @Override
     public void onSongSelected(int position) {
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .addToBackStack(null)
-                .replace(R.id.container, DetailSongFragment.newInstance(position))
-                .commit();
+        if(resourceType.equals("sw600dp")){
+            fragmentManager.beginTransaction()
+                    .replace(R.id.containerRight, DetailSongFragment.newInstance(position))
+                    .commit();
+
+        }else {
+            fragmentManager.beginTransaction()
+                    .addToBackStack(null)
+                    .replace(R.id.container, DetailSongFragment.newInstance(position))
+                    .commit();
+        }
     }
 }
